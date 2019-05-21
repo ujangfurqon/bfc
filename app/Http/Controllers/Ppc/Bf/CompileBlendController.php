@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Ppc\Bf;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Ppc\Bf\CompileBlend;
+
 
 class CompileBlendController extends Controller
 {
@@ -14,7 +16,14 @@ class CompileBlendController extends Controller
      */
     public function index()
     {
-        //
+
+        $data = CompileBlend::paginate(5);
+        $route = 'bf_compile_blend';
+        $judul = 'Blast Furnace Compile Blending';
+        $material = [];
+
+        $jumlah_data =  $data->total();
+        return view('ppc.bf.index_bf_blend', compact('data', 'jumlah_data', 'route', 'judul', 'material'));
     }
 
     /**

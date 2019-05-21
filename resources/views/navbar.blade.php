@@ -25,7 +25,7 @@
                                     <li><a href="{{url('bf_compile_prod')}}">Compile Production</a></li>
                                     <li><a href="#">Distribute Production</a></li>
                                     <br>
-                                <li><a href="{{ url('bf_compile_blend') }}">Compile Blending</a></li>
+                                    <li><a href="{{ url('bf_compile_blend') }}">Compile Blending</a></li>
                                     <li><a href="{{ url('bf_compile_material') }}">Compile Material</a></li>
                                     <li><a href="#">Distribute Material</a></li>
                                     <br>
@@ -36,29 +36,29 @@
                             <li class="col-sm-3">
                                 <ul>
                                     <li class="dropdown-header">Sintering</li>
-                                    <li><a href="#">Compile Production</a></li>
+                                    <li><a href="{{ url('sinter_prod') }}">Compile Production</a></li>
                                     <li><a href="#">Distribute Production</a></li>
                                     <br>
-                                    <li><a href="#">Compile Blending</a></li>
-                                    <li><a href="#">Compile Material</a></li>
+                                    <li><a href="{{ url('sinter_blend') }}">Compile Blending</a></li>
+                                    <li><a href="{{ url('sinter_material') }}">Compile Material</a></li>
                                     <li><a href="#">Distribute Material</a></li>
                                 </ul>
                             </li>
                             <li class="col-sm-3">
                                 <ul>
                                     <li class="dropdown-header">Coking</li>
-                                    <li><a href="#">Compile Production</a></li>
+                                    <li><a href="{{ url('cop_prod') }}">Compile Production</a></li>
                                     <li><a href="#">Distribute Production</a></li>
                                     <br>
-                                    <li><a href="#">Compile Blending</a></li>
-                                    <li><a href="#">Compile Material</a></li>
+                                    <li><a href="{{ url('cop_blend') }}">Compile Blending</a></li>
+                                    <li><a href="{{ url('cop_material') }}">Compile Material</a></li>
                                     <li><a href="#">Distribute Material</a></li>
                                 </ul>
                             </li>
                             <li class="col-sm-3">
                                 <ul>
                                     <li class="dropdown-header">Stock Yard</li>
-                                    <li><a href="#">Compile Blending</a></li>
+                                    <li><a href="{{ url('yard_blend') }}">Compile Blending</a></li>
                                     <li><a href="#">Distribute Blending</a></li>
                                     <br>
                                     <li><a href="#">Purchace Order</a></li>
@@ -68,6 +68,7 @@
                     </li>
                 </ul>
             </div>
+
 
             <!--stock yard-->
             <div class="collapse navbar-collapse js-navbar-collapse">

@@ -1,10 +1,21 @@
 <?php
 
-namespace App\Models\Ppc\Coking;
+namespace App\Models\Ppc\Cooking;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Ppc\CompileBlend as CB;
+use Illuminate\Database\Eloquent\Builder;
 
-class CompileBlend extends Model
+class CompileBlend extends CB
 {
-    //
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope('pb_type', function (Builder $builder) {
+            $builder->where('pb_type', 'J');
+        });
+    }
 }
+
+// kalau ada perubahan posisi file
+// menggunakan composer di terminal
+// composer dump-autoload

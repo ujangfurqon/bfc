@@ -14,7 +14,8 @@ class CompileProdController extends Controller
      */
     public function index()
     {
-        //
+        $data = null;
+        return view('ppc.sintering.index_sinter_prod', compact('data'));
     }
 
     /**

@@ -22,6 +22,8 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome');
     });
 
+    // route ppc ------------------------- start
+
     Route::resource('bf_compile_prod', 'Ppc\Bf\CompileProdController');
     Route::get('bf_compile_prod/send/{prod_no}', 'Ppc\Bf\CompileProdController@send')->name('bf_compile_prod.send');
 
@@ -38,10 +40,13 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('cop_material', 'Ppc\Coking\CompileMaterialController');
 
     Route::resource('yard_blend', 'Ppc\Stockyard\CompileBlendingController');
+    Route::get('yard_blend/detail/{father_seq}', 'Ppc\Stockyard\CompileBlendingController@mydetail')->name('yard_blend.detail');
+
+    // route ppc ------------------------- end
 
 
-    Route::get('bf_tapping/showLadleIn/{iron_no}', 'Bfc\OperationController@showLadleIn')->name('bf_tapping.showLadleIn');
-    Route::resource('bf_tapping', 'Bfc\OperationController');
+    // Route::get('bf_tapping/showLadleIn/{iron_no}', 'Bfc\OperationController@showLadleIn')->name('bf_tapping.showLadleIn');
+    // Route::resource('bf_tapping', 'Bfc\OperationController');
     // Route::resource('bf_ladle_in', 'Bfc\LadleInController');
 
 });

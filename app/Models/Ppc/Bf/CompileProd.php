@@ -3,8 +3,8 @@
 namespace App\Models\Ppc\Bf;
 
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
-// use App\Traits\ConcToDateOrDatetime;  //format field string to date (php)
+use App\Myclass\str_date;
+
 
 
 class CompileProd extends Model
@@ -37,52 +37,6 @@ class CompileProd extends Model
         'rownum',
     ];
 
-    //format penulisan dateTime
-    private function conToDateTime($value)
-    {
-        $hasil = null;
-        $len = strlen($value);
-
-        if ($len == 10) $value = $value . "0000";
-        if ($len == 12) $value = $value . "00";
-        $len = strlen($value);
-
-        if ($len == 8) {
-            return Carbon::parse($value)->format('Y-m-d');
-        }
-
-        if ($len == 14)
-            $hasil = Carbon::parse($value)->format('Y-m-d H:i:s');
-
-        return ($hasil);
-    }
-
-
-    private function strDate($value)
-    {
-        $hasil = null;
-        //date
-        if (strlen($value) >= 10) {
-            $year = substr($value, 0, 4);
-            $month = substr($value, 5, 2);
-            $day = substr($value, 8, 2);
-
-            $hasil = $year . $month . $day;
-        }
-
-        //dateTime 
-        if (strlen($value) >= 18) {
-            $h = substr($value, 11, 2);
-            $m = substr($value, 14, 2);
-            $s = substr($value, 17, 2);
-
-            $hasil = $hasil . $h . $m . $s;
-        }
-
-        return $hasil;
-    }
-
-
 
     //join tabel  bpb_glyscjh dg tabel BBB_MATE_CD
     public function material()
@@ -93,36 +47,36 @@ class CompileProd extends Model
     // ---------------------- tampilkan format date (accessor) 
     public function getPlanStarTimeAttribute($value)
     {
-        return $this->conToDateTime($value);
+        return str_date::conToDateTime($value);
     }
 
     public function getPlanEndTimeAttribute($value)
     {
-        return $this->conToDateTime($value);
+        return str_date::conToDateTime($value);
     }
 
     public function getOStartTimeAttribute($value)
     {
-        return $this->conToDateTime($value);
+        return str_date::conToDateTime($value);
     }
     public function getOEndTimeAttribute($value)
     {
-        return $this->conToDateTime($value);
+        return str_date::conToDateTime($value);
     }
 
     public function getInDateAttribute($value)
     {
-        return $this->conToDateTime($value);
+        return str_date::conToDateTime($value);
     }
 
     public function getMDateAttribute($value)
     {
-        return $this->conToDateTime($value);
+        return str_date::conToDateTime($value);
     }
 
     public function getSDateAttribute($value)
     {
-        return $this->conToDateTime($value);
+        return str_date::conToDateTime($value);
     }
 
 
@@ -151,20 +105,20 @@ class CompileProd extends Model
     //----------------------------set format date ke string ketika save (mutator)
     public function setPlanStarTimeAttribute($value)
     {
-        $this->attributes['plan_star_time'] = $this->strDate($value);
+        $this->attributes['plan_star_time'] = str_date::strDate($value);
     }
 
     public function setPlanEndTimeAttribute($value)
     {
-        $this->attributes['plan_end_time'] = $this->strDate($value);
+        $this->attributes['plan_end_time'] = str_date::strDate($value);
     }
     public function setOStartTimeAttribute($value)
     {
-        $this->attributes['o_start_time'] = $this->strDate($value);
+        $this->attributes['o_start_time'] = str_date::strDate($value);
     }
     public function setOEndTimeAttribute($value)
     {
-        $this->attributes['o_end_time'] = $this->strDate($value);
+        $this->attributes['o_end_time'] = str_date::strDate($value);
     }
 
 
