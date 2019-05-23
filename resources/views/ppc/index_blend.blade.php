@@ -29,7 +29,7 @@
         <tbody>
             @foreach($data as $blend)
             <tr>
-                <td><a data-url="{{ route('yard_blend.detail',  [$blend->seq, $blend->pbd_no]) }}"
+                <td><a data-url="{{ route('yard_blend.detail',  $blend->seq) }}"
                         class="btn btn-sukses btn-sm id-detail">{{ $blend->pbd_no }}</a>
                     
                 </td>
@@ -41,8 +41,8 @@
                 
                 <td>
                     <div class="box-button">
-                        <a href="{{ route($route . '.show', $blend->seq) }}"
-                            class="btn btn-success btn-sm">Detail</a>
+                        <a data-url="{{ route($route . '.show', $blend->seq) }}"
+                            class="btn btn-success btn-sm id-modal">Detail</a>
                     </div>
                     {{-- @if (Auth::check()) --}}
                     <div class="box-button">
@@ -85,6 +85,13 @@
 
 {{-- blending material --}}
 @include('ppc.detail_blend')
+
+
+{{-- modal --}}
+<div id="modalresponse" style="margin-top:2rem">
+
+</div>
+
 
 @endsection
 
@@ -150,7 +157,7 @@
             var url = $(event.target).data('url');
             $.ajax({ 
                 url: url,
-                type: "POST",
+                type: "GET",
                 data: {"_token": token, },
 
                 success: function (data, textStatus, jqXHR) {

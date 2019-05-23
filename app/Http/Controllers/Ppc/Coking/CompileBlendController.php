@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Ppc\Coking;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Ppc\Cooking\CompileBlend;
+use App\Models\Ppc\Coking\CompileBlend;
 
 class CompileBlendController extends Controller
 {
@@ -53,7 +53,9 @@ class CompileBlendController extends Controller
      */
     public function show($id)
     {
-        //
+        $parens = CompileBlend::find($id);
+        $view   = view('ppc.showParen_blend', compact('parens'))->render();
+        return response()->json(['html' => $view]);
     }
 
     /**

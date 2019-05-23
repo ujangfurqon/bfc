@@ -30,10 +30,10 @@ class CompileBlendingController extends Controller
 
     public function mydetail($father_seq)
     {
-        // $blends = DetailBlend::where('father_seq', $father_seq)->get();
         $blends = DetailBlend::where('father_seq', $father_seq)
             ->with('compileBlend:seq,pbd_no')
             ->get();
+
 
         $data = $blends->map(function ($item) {
             return [
@@ -77,7 +77,9 @@ class CompileBlendingController extends Controller
      */
     public function show($id)
     {
-        //
+        $parens = CompileBlend::find($id);
+        $view   = view('ppc.showParen_blend', compact('parens'))->render();
+        return response()->json(['html' => $view]);
     }
 
     /**

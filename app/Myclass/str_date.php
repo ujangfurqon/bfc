@@ -13,19 +13,18 @@ class str_date
         $hasil = null;
         $len = strlen($value);
 
-        // if ($len == 10) $value = $value . "0000";
-        // if ($len == 12) $value = $value . "00";
-        // $len = strlen($value);
-
-        $thn = substr($value, 0, 4);
-
-        if ($len == 8) {
-            return Carbon::parse($value)->format('Y-m-d');
-        }
-
-        if ($len == 14)
-            $hasil = Carbon::parse($value)->format('Y-m-d H:i:s');
-
+        if ($len > 7)
+            switch ($len) {
+                case 8:
+                    $hasil = Carbon::parse($value)->format('Y-m-d');
+                    break;
+                case 12:
+                    $hasil = Carbon::parse($value)->format('Y-m-d H:i');
+                    break;
+                case 14:
+                    $hasil = Carbon::parse($value)->format('Y-m-d H:i:s');
+                    break;
+            }
         return ($hasil);
     }
 

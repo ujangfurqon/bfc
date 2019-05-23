@@ -4,7 +4,8 @@ namespace App\Models\Ppc;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Myclass\str_date;
-
+use Carbon\Carbon;
+use Illuminate\Support\Carbon as IlluminateCarbon;
 
 class CompileBlend extends Model
 {
@@ -45,8 +46,12 @@ class CompileBlend extends Model
     public function getStatusAttribute($value)
     {
         $hasil = null;
-        if ($value == '0') $hasil = 'New';
-        if ($value == '1') $hasil = 'Send';
+        // if ($value == '0') $hasil = 'New';
+        if ($value == '1') {
+            $hasil = 'Send';
+        } else {
+            $hasil = 'New';
+        }
 
         return $hasil;
     }
@@ -59,38 +64,53 @@ class CompileBlend extends Model
     public function getPbStarTimeAttribute($value)
     {
         return str_date::conToDateTime($value);
+        // return Carbon::parse($value)->format('Y-m-d H:i:s');
+    }
+    public function setPbStarTimeAttribute($value)
+    {
+        $this->attributes['pb_star_time'] = Carbon::createFromFormat('YmdHis', $value)->toDateTimeString();
     }
 
     public function getPbEndTimeAttribute($value)
     {
         return str_date::conToDateTime($value);
     }
+    public function getInDateAttribute($value)
+    {
+        return str_date::conToDateTime($value);
+        // return Carbon::parse($value)->format('Y-m-d H:i:s');
+    }
 
+    public function getMDateAttribute($val)
+    {
+        return str_date::conToDateTime($val);
+        // return Carbon::parse($val)->format('Y-m-d H:i:s');
+    }
 
-    // public function scopePertama($query)
-    // {
-    //     return $query->orderBy('PB_STAR_TIME', 'desc');
-    // }
+    public function getSDateAttribute($val)
+    {
+        return str_date::conToDateTime($val);
+        // return Carbon::parse($val)->format('Y-m-d H:i:s');
+    }
 
-    // tes di tinker
-    // App\Models\Ppc\Bf\CompileBlend::blastFurnace()->get();
-    // public function scopeBlastfurnace($query)
-    // {
-    //     return $query->where('pb_type', 'G');
-    // }
+    public function getPbTypeAttribute($val)
+    {
+        $hasil = null;
+        switch ($val) {
+            case 'G':
+                $hasil = 'Blast Furnace';
+                break;
+            case 'S':
+                $hasil = 'Sinter';
+                break;
+            case 'J':
+                $hasil = 'Coke';
+                break;
+            case 'H':
+                $hasil = 'Stock Yard';
+                break;
+        }
 
-    // public function scopeSinter($query)
-    // {
-    //     return $query->where('pb_type', 'S');
-    // }
-
-    // public function scopeCoking($query)
-    // {
-    //     return $query->where('pb_type', 'J');
-    // }
-
-    // public function scopeYard($query)
-    // {
-    //     return $query->where('pb_type', 'H');
-    // }
+        return $hasil;
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Ppc\Cooking;
+namespace App\Models\Ppc\Coking;
 
 use App\Models\Ppc\CompileBlend as CB;
 use Illuminate\Database\Eloquent\Builder;

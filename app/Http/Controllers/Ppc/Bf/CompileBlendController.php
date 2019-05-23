@@ -55,7 +55,9 @@ class CompileBlendController extends Controller
      */
     public function show($id)
     {
-        //
+        $parens = CompileBlend::find($id);
+        $view   = view('ppc.showParen_blend', compact('parens'))->render();
+        return response()->json(['html' => $view]);
     }
 
     /**
