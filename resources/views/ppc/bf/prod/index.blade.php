@@ -9,7 +9,7 @@
 
     @include('find-form', [
         'text_placeholder' => 'Masukkan prod order',
-        'route_name' => 'bf_compile_prod.index'
+        'route_name' => 'bunker.index'
     ])
 
     <table class="table">

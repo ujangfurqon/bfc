@@ -44,4 +44,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('bf_tapping', 'Bfc\OperationController');
     // Route::resource('bf_ladle_in', 'Bfc\LadleInController');
 
+    // Route Modul Sinter
+    Route::resource('sintering/bunker', 'Sinter\BunkerController');
+    Route::resource('sintering/charging', 'Sinter\ChargController');
 });
