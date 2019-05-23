@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models\Sinter;
+namespace App\Models\sinter;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Bunker extends Model
+class MaterialCode extends Model
 {
-    protected $table = 's_trou_level';
+    protected $table = 'bbb_mate_cd';
     protected $primaryKey = 'seq';
     public $timestamps = false;
 }

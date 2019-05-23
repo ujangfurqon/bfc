@@ -130,8 +130,8 @@
                             <li class="col-sm-3">
                                 <ul>
                                     <li class="dropdown-header">Bunker Management</li>
-                                    <li><a href="#">Bunker</a></li>
-                                    <li><a href="#">Charging</a></li>
+                                    <li><a href="{{url('sintering/bunker')}}">Bunker</a></li>
+                                    <li><a href="{{url('sintering/charging')}}">Charging</a></li>
                                     <li><a href="#">Blending Granulation</a></li>
 
                                 </ul>
