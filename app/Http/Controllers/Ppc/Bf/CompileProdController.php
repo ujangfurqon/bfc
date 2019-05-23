@@ -34,11 +34,14 @@ class CompileProdController extends Controller
             $data = CompileProd::inPeriod($d1, $d2)->paginate(5);
         }
 
-        if ($data == null) {
+        if (($po == "") && ($d1 == "") && ($d2 == "")) {
+            // if ($data == null) {
             $data   = CompileProd::where('status', 0)
                 ->orderBy('plan_star_time', 'desc')
                 ->paginate(5);
         }
+
+        $data->appends(request()->input()); //agar pagenya ikut
 
         $jumlah_data = $data->total();
         return view('ppc.bf.prod.index', compact('data', 'jumlah_data'));

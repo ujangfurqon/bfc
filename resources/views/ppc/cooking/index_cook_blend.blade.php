@@ -1,0 +1,1 @@
+@include('ppc.index_blend', ['route' => $route])

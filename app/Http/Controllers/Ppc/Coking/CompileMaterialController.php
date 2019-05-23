@@ -14,7 +14,8 @@ class CompileMaterialController extends Controller
      */
     public function index()
     {
-        //
+        $data = null;
+        return view('ppc.cooking.index_cook_material', compact('data'));
     }
 
     /**

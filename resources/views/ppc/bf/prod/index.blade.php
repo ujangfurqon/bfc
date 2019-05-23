@@ -52,13 +52,10 @@
                     </div>
                     {{-- @if (Auth::check()) --}}
                     <div class="box-button">
-                        <a href="{{ route('bf_compile_prod.edit', $prod->seq) }}" class="btn btn-success btn-sm">                            
-                            <span class="glyphicon glyphicon-envelop"></span></a>
-                    </div>  
-                    
-                    
-                          <a href="#"><span  class="glyphicon glyphicon-remove"></span></a>
-                          <a href="#"><span style="font-size: 26px" class="glyphicon glyphicon-envelope"></span></a>
+                        <a href="{{ route('bf_compile_prod.edit', $prod->seq) }}" 
+                            class="btn btn-warning btn-sm">Edit</a>
+                    </div> 
+                         
                     <div class="box-button">
                         {!! Form::submit('Delete', [
                         'class' => 'btn btn-danger btn-sm form-delete',
@@ -66,8 +63,6 @@
                         ]
                         ) !!}
                     </div>
-                    
-
 
                 </td>
             </tr>
@@ -78,7 +73,7 @@
 
 
 </div>
-{{-- / #ppc.bf.compileProd  --}}
+
 
 <div class="table-nav">
     <div class="jumlah-data">

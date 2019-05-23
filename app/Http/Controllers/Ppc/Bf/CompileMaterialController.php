@@ -14,7 +14,8 @@ class CompileMaterialController extends Controller
      */
     public function index()
     {
-        //
+        $data = null;
+        return view('ppc.bf.index_bf_material', compact('data'));
     }
 
     /**
