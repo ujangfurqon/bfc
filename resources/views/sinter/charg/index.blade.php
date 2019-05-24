@@ -74,7 +74,7 @@
             </tbody>
         </table>
     </div>
-
+    {{-- links --}}
     <div class="table-nav">
         <div class="jumlah-data">
             <strong> Jumlah Data: {{ $jumlah_data }} </strong>
