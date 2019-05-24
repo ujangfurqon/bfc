@@ -64,7 +64,7 @@
                         <div class="box-button">
                             {!! Form::submit('Delete', [
                             'class' => 'btn btn-danger btn-sm form-delete',
-                            'data-url' => route('charging.destroy', [ 'id' => $prod->seq ])
+                            'data-url' => route('charging.destroy', [ 'id' => $data->seq ])
                             ]
                             ) !!}
                         </div>
